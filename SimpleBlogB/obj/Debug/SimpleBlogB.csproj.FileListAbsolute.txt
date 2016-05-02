@@ -1,4 +1,3 @@
-C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\ApplicationInsights.config
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\roslyn\csc.exe
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\roslyn\csc.exe.config
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\roslyn\csc.rsp
