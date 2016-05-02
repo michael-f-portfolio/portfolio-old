@@ -57,3 +57,10 @@ C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\obj\Debug\SimpleBlogB.csprojResolveAssemblyReference.cache
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\obj\Debug\SimpleBlogB.dll
 C:\Users\Micha\Documents\Visual Studio 2015\Projects\SimpleBlogB\SimpleBlogB\obj\Debug\SimpleBlogB.pdb
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Antlr3.Runtime.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Newtonsoft.Json.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\System.Web.Optimization.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\WebGrease.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Antlr3.Runtime.pdb
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Newtonsoft.Json.xml
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\System.Web.Optimization.xml
