@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace SimpleBlogB.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class PostsController : Controller
     {
         // GET: Admin/Posts
         public ActionResult Index()
         {
-            return View();
+            return Content("THIS IS THE ADMIN POSTS PAGE!");
         }
     }
 }
