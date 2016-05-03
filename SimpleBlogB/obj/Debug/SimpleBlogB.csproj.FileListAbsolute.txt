@@ -72,3 +72,5 @@ C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\NHibernate.dll
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Iesi.Collections.xml
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\NHibernate.xml
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\BCrypt.Net.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\BCrypt.Net.xml

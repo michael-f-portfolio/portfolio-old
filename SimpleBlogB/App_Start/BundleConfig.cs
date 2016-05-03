@@ -9,7 +9,7 @@ namespace SimpleBlogB
             // Styles
             bundles.Add(new StyleBundle("~/admin/styles")
                 .Include("~/content/styles/bootstrap.css")
-                .Include("~/content/styles/Admin.css"));
+                .Include("~/content/styles/admin.css"));
 
             bundles.Add(new StyleBundle("~/styles")
                 .Include("~/content/styles/bootstrap.css")
