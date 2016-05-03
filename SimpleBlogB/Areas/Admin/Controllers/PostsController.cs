@@ -48,11 +48,14 @@ namespace SimpleBlogB.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
+            // Get post based on ID
             var post = Database.Session.Load<Post>(id);
-
+            
+            // If not found, return 404
             if (post == null)
                 return HttpNotFound();
 
+            // Return to view with populated PostsForm
             return View("Form", new PostsForm
             {
                 IsNew = false,
@@ -66,36 +69,85 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Form(PostsForm form)
         {
+            // If form doesn't have a PostId it is new
             form.IsNew = form.PostId == null;
 
+            // If form is invalid, return to form
             if (!ModelState.IsValid)
                 return View(form);
 
             Post post;
+
+            // If form is creating a new post
             if (form.IsNew)
             {
+                // Assign the CreatedAt and User properties
                 post = new Post()
                 {
                     CreatedAt = DateTime.UtcNow,
                     User = Auth.User
                 };
             }
+            // Else get post based on PostId from database
             else
             {
                 post = Database.Session.Load<Post>(form.PostId);
 
+                // If not found, return 404
                 if (post == null)
                     return HttpNotFound();
 
+                // Set UpdatedAt as current time
                 post.UpdatedAt = DateTime.UtcNow;
             }
 
+            // Set properties based on form 
             post.Title = form.Title;
             post.Slug = form.Slug;
             post.Content = form.Content;
 
+            // If entry exists update it, else create new entry
             Database.Session.SaveOrUpdate(post);
 
+            // Return to index
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Trash(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+
+            if(post == null)
+                return HttpNotFound();
+
+            post.DeletedAt = DateTime.UtcNow;
+            Database.Session.Update(post);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+
+            if (post == null)
+                return HttpNotFound();
+
+            Database.Session.Delete(post);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Restore(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+
+            if (post == null)
+                return HttpNotFound();
+
+            post.DeletedAt = null;
+            Database.Session.Update(post);
             return RedirectToAction("Index");
         }
     }

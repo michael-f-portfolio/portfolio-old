@@ -7,7 +7,7 @@
     if (!Model.IsNew)
     {
         @Html.HiddenFor(f => f.PostId)  
-    }
+    }   
 
     @Html.AntiForgeryToken()
 
@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(f => f.Slug)
-                @Html.TextBoxFor(f => f.Slug, new {@class = "form-control"})
+                @Html.TextBoxFor(f => f.Slug, new {@class = "form-control", data_slug="#Title"})
             </div>
 
             <div class="form-group">
@@ -34,7 +34,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">Post Actions</div>
                 <div class="panel-body">
-                    <input type="submit" value="@(Model.IsNew ? "Public Post" : "Update Post")" class="btn btn-success btn-sm"/>
+                    <input type="submit" value="@(Model.IsNew ? "Publish Post" : "Update Post")" class="btn btn-success btn-sm"/>
                     <a href="@Url.Action("index")"> or cancel</a>
                 </div>
             </div>

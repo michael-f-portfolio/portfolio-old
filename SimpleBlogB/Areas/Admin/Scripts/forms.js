@@ -26,4 +26,33 @@
             .appendTo(document.body)
             .submit();
     });
+
+    $("[data-slug]").each(function() {
+        var $this = $(this);
+        // Get the slug
+        var $sendSlugFrom = $($this.data("slug"));
+
+        // On each key press
+        $sendSlugFrom.keyup(function() {
+            // Get the slug
+            var slug = $sendSlugFrom.val();
+
+            // Replace all non-alphanumeric characters
+            slug = slug.replace("/[^a-zA-Z0-9\s]\g", "");
+            
+            // Make lowercase
+            slug = slug.toLowerCase();
+
+            // Replace all spaces with '-'
+            slug = slug.replace("/\s+/g", "-");
+
+            // If final char is a '-', trim it
+            if (slug.charAt(slug.length - 1) === "-") {
+                slug = slug.substr(0, slug.length - 1);
+            }
+
+            // Return slug
+            $this.val(slug);
+        });
+    });
 });
