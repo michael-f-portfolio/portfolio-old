@@ -68,3 +68,7 @@ C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\FluentMigrator.pdb
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\FluentMigrator.xml
 C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\MySql.Data.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Iesi.Collections.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\NHibernate.dll
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\Iesi.Collections.xml
+C:\Users\Micha\documents\visual studio 2015\Projects\SimpleBlogB\SimpleBlogB\bin\NHibernate.xml

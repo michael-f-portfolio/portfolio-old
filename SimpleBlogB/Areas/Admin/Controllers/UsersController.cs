@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NHibernate.Linq;
+using SimpleBlogB.Areas.Admin.ViewModels;
 using SimpleBlogB.Infrastructure;
+using SimpleBlogB.Models;
 
 namespace SimpleBlogB.Areas.Admin.Controllers
 {
@@ -14,7 +17,10 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return View();
+            return View(new UsersIndex()
+            {
+                Users = Database.Session.Query<User>().ToList()
+            });
         }
     }
 }

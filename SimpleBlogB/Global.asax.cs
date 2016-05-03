@@ -13,10 +13,25 @@ namespace SimpleBlogB
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            // Register Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // Register styles and scripts bundles
             BundleConfig.RegisterBundes(BundleTable.Bundles);
+
+            // Register/Configure Database
+            Database.Configure();
+        }
+
+        protected void Application_BeginRequest()
+        {
+            Database.OpenSession();
+        }
+
+        protected void Application_EndRequest()
+        {
+            Database.CloseSession();
         }
     }
 }
