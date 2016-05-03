@@ -174,6 +174,7 @@
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\ResetPassword.cshtml" />
     <Content Include="Areas\Admin\Views\Users\_RoleEditor.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Form.cshtml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />

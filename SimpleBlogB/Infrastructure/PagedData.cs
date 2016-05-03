@@ -8,9 +8,13 @@ namespace SimpleBlogB.Infrastructure
     {
         private readonly IEnumerable<T> _currentItems;
 
+        // Total # number of posts
         public int TotalCount { get; private set; }
+        // Current page
         public int Page { get; private set; }
+        // Posts per page
         public int PerPage { get; private set; }
+        // Total # of pages
         public int TotalPages { get; private set; }
 
         public bool HasNextPage { get; private set; }
@@ -20,9 +24,11 @@ namespace SimpleBlogB.Infrastructure
         {
             get
             {
+                // If no next page, throw exception
                 if (!HasNextPage)
                     throw new InvalidOperationException();
 
+                // Else return page + 1
                 return Page + 1;
             }
         }
@@ -31,9 +37,11 @@ namespace SimpleBlogB.Infrastructure
         {
             get
             {
+                // If no previous page, throw exception
                 if (!HasPreviousPage)
                     throw new InvalidOperationException();
 
+                // Else return page - 1
                 return Page - 1;
             }
         }
@@ -45,8 +53,11 @@ namespace SimpleBlogB.Infrastructure
             Page = page;
             PerPage = perPage;
 
+            // ( Total number of posts / Posts per page ) => Ceiling'd => Cast to int
             TotalPages = (int) Math.Ceiling((float) TotalCount/PerPage);
+            // Is current page < Total # of pages
             HasNextPage = Page < TotalPages;
+            // Is current page > 1
             HasPreviousPage = Page > 1;
         }
 

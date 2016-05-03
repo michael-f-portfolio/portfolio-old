@@ -16,7 +16,7 @@ namespace SimpleBlogB.Models
         public virtual string Slug { get; set; } // URL specific title
         public virtual string Content { get; set; }
 
-        public virtual DateTime CreatedAt { get; set; }
+        public virtual DateTime  CreatedAt { get; set; }
         public virtual DateTime? UpdatedAt { get; set; }
         public virtual DateTime? DeletedAt { get; set; } // For soft deletion
 
