@@ -14,6 +14,9 @@ namespace SimpleBlogB
         {
             AreaRegistration.RegisterAllAreas();
 
+            // Register Filters
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
             // Register Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
