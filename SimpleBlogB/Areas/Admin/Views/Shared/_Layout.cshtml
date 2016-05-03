@@ -40,5 +40,10 @@
 
     @Scripts.Render("~/admin/scripts")
     @RenderSection("Scripts", false)
+
+    <!-- Nonce for deleting users -->
+    <form class="hidden" id="anti-forgery-form">
+        @Html.AntiForgeryToken()
+    </form>
 </body>
 </html>

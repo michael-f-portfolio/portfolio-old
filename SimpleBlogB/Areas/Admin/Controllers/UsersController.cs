@@ -28,7 +28,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             return View(new UsersNew() {});
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult New(UsersNew form)
         {
             // If username is not unique, throw error
@@ -72,7 +72,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Edit(int id, UsersEdit form)
         {
             // Get user from database based on ID
@@ -116,7 +116,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult ResetPassword(int id, UsersResetPassword form)
         {
             // Get user from database based on ID
@@ -141,7 +141,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             return RedirectToAction("index");
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             // Get user from database based on ID

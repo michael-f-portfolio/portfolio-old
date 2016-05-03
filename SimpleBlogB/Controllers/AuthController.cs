@@ -33,7 +33,7 @@ namespace SimpleBlogB.Controllers
             if (user == null || !user.CheckPassword(form.Password))
                 ModelState.AddModelError("Username", "Username or password is incorrect");
 
-            // If not valid
+            // If not valid, return form
             if (!ModelState.IsValid)
                 return View(form);
 
