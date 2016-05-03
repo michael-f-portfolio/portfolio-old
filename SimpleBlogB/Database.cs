@@ -32,6 +32,8 @@ namespace SimpleBlogB
             // Add UserMap to mapper
             mapper.AddMapping<UserMap>();
             mapper.AddMapping<RoleMap>();
+            mapper.AddMapping<TagMap>();
+            mapper.AddMapping<PostMap>();
 
             // Add mapper to config
             config.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());

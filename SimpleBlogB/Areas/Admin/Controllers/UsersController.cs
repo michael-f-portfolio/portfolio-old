@@ -27,6 +27,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         {
             return View(new UsersNew()
             {
+                // Get all roles from database and place them in a List
                 Roles = Database.Session.Query<Role>().Select(role => new RoleCheckbox
                 {
                     Id = role.Id,
@@ -40,6 +41,8 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         public ActionResult New(UsersNew form)
         {
             var user = new User();
+
+            // 
             SyncRoles(form.Roles, user.Roles);
 
             // If username is not unique, throw error
@@ -177,18 +180,25 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         {
             var selectedRoles = new List<Role>();
 
+            // For each role within the database
             foreach (var role in Database.Session.Query<Role>())
             {
+                // Get the ID and assign it
                 var checkbox = checkboxes.Single(c => c.Id == role.Id);
+                
+                // Assign the name
                 checkbox.Name = role.Name;
 
+                // If checked, add to selectedRoles[]
                 if(checkbox.IsChecked)
                     selectedRoles.Add(role);
             }
 
+            // Add roles
             foreach (var toAdd in selectedRoles.Where(t => !roles.Contains(t)))
                 roles.Add(toAdd);
 
+            // Remove roles
             foreach (var toRemove in roles.Where(t => !selectedRoles.Contains(t)).ToList())
                 roles.Remove(toRemove);
 
