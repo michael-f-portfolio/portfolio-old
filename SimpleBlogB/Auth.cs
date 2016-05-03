@@ -10,7 +10,7 @@ namespace SimpleBlogB
     {
         private const string UserKey = "SimpleBlogB.Auth.UserKey";
 
-        // Gets the currently l
+        // Gets User obj of the currently logged in user
         public static User User
         {
             get

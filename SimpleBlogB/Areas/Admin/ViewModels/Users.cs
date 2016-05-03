@@ -4,9 +4,15 @@ using SimpleBlogB.Models;
 
 namespace SimpleBlogB.Areas.Admin.ViewModels
 {
-
     // These are the ViewModels associated with the Admin:User CRUD
-    
+
+    public class RoleCheckbox
+    {
+        public int Id { get; set; }
+        public bool IsChecked { get; set; }
+        public string Name { get; set; }
+    }
+
     /// <summary>
     /// UsersIndex
     /// ViewModel for with displaying all users to the screen.
@@ -23,6 +29,8 @@ namespace SimpleBlogB.Areas.Admin.ViewModels
     /// </summary>
     public class UsersNew
     {
+        public IList<RoleCheckbox> Roles { get; set; }
+
         [Required, MaxLength(128)]
         public string Username { get; set; }
 
@@ -39,6 +47,8 @@ namespace SimpleBlogB.Areas.Admin.ViewModels
     /// </summary>
     public class UsersEdit
     {
+        public IList<RoleCheckbox> Roles { get; set; }
+
         [Required, MaxLength(128)]
         public string Username { get; set; }
 
