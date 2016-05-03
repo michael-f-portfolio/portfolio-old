@@ -29,7 +29,7 @@ namespace SimpleBlogB
             // Add our mappings
             var mapper = new ModelMapper();
             
-            // Add UserMap to mapper
+            // Add mappings to mapper
             mapper.AddMapping<UserMap>();
             mapper.AddMapping<RoleMap>();
             mapper.AddMapping<TagMap>();
