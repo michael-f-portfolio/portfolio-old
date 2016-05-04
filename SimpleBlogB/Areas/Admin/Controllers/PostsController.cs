@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using NHibernate.Linq;
 using SimpleBlogB.Areas.Admin.ViewModels;
 using SimpleBlogB.Infrastructure;
+using SimpleBlogB.Infrastructure.Extensions;
 using SimpleBlogB.Models;
 
 namespace SimpleBlogB.Areas.Admin.Controllers
@@ -42,7 +43,13 @@ namespace SimpleBlogB.Areas.Admin.Controllers
         {
             return View("Form", new PostsForm
             {
-                IsNew = true
+                IsNew = true, 
+                Tags = Database.Session.Query<Tag>().Select(tag => new TagCheckbox
+                {
+                    Id = tag.Id,
+                    Name = tag.Name,
+                    IsChecked = false
+                }).ToList()
             });
         }
 
@@ -62,7 +69,13 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                 PostId = id,
                 Content = post.Content,
                 Slug = post.Slug,
-                Title =  post.Title
+                Title =  post.Title,
+                Tags = Database.Session.Query<Tag>().Select(tag => new TagCheckbox
+                {
+                    Id = tag.Id,
+                    Name = tag.Name,
+                    IsChecked = post.Tags.Contains(tag)
+                }).ToList()
             });
         }
 
@@ -76,6 +89,8 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return View(form);
 
+            var selectedTags = ReconsileTags(form.Tags).ToList();
+
             Post post;
 
             // If form is creating a new post
@@ -87,8 +102,11 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                     CreatedAt = DateTime.UtcNow,
                     User = Auth.User
                 };
+
+                foreach (var tag in selectedTags)
+                    post.Tags.Add(tag);
             }
-            // Else get post based on PostId from database
+            // Else get post based on PostId from database (Editing)
             else
             {
                 post = Database.Session.Load<Post>(form.PostId);
@@ -99,6 +117,12 @@ namespace SimpleBlogB.Areas.Admin.Controllers
 
                 // Set UpdatedAt as current time
                 post.UpdatedAt = DateTime.UtcNow;
+
+                foreach (var toAdd in selectedTags.Where(t => !post.Tags.Contains(t)))
+                    post.Tags.Add(toAdd);
+
+                foreach (var toRemove in post.Tags.Where(t => !selectedTags.Contains(t)).ToList())
+                    post.Tags.Remove(toRemove);
             }
 
             // Set properties based on form 
@@ -149,6 +173,35 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             post.DeletedAt = null;
             Database.Session.Update(post);
             return RedirectToAction("Index");
+        }
+
+        private IEnumerable<Tag> ReconsileTags(IEnumerable<TagCheckbox> tags)
+        {
+            foreach (var tag in tags.Where(t => t.IsChecked))
+            {
+                if (tag.Id != null)
+                {
+                    yield return Database.Session.Load<Tag>(tag.Id);
+                    continue;   
+                }
+
+                var existingTag = Database.Session.Query<Tag>().FirstOrDefault(t => t.Name == tag.Name);
+                if (existingTag != null)
+                {
+                    yield return existingTag;
+                    continue;
+                }
+
+                var newTag = new Tag
+                {
+                    Name = tag.Name,
+                    Slug = tag.Name.Slugify()
+                };
+
+                Database.Session.Save(newTag);
+
+                yield return newTag;
+            }
         }
     }
 }
