@@ -464,6 +464,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Auth.cs" />
+    <Compile Include="ViewModels\Posts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -475,6 +476,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Tools\DeployDB-Dev.bat" />
+    <Content Include="Views\Posts\_Posts.cshtml" />
+    <Content Include="Views\Posts\_Post.cshtml" />
+    <Content Include="Views\Posts\Show.cshtml" />
+    <Content Include="Views\Posts\Tag.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
