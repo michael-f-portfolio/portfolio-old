@@ -31,8 +31,6 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                 .Select(p => p.Id)
                 .ToArray();
 
-
-
             // SELECT * FROM posts
             // ORDER BY created_at DESC;
             // Skip all previous pages * # posts per page
@@ -41,7 +39,6 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                 .Where(p => postIds.Contains(p.Id))
                 .FetchMany(f => f.Tags)
                 .Fetch(f => f.User)
-                
                 .ToList();
 
             return View(new PostsIndex
@@ -90,7 +87,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             });
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
         public ActionResult Form(PostsForm form)
         {
             // If form doesn't have a PostId it is new
