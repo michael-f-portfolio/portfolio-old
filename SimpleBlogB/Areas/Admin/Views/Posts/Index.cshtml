@@ -55,7 +55,7 @@
                 cls = "danger";
             }
 
-            <tr>
+            <tr class="@cls">
                 <td>@post.Title</td>
                 <td>@post.User.Username</td>
                 <td>@string.Join(", ", post.Tags.Select(t => t.Name))</td>

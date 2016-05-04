@@ -15,7 +15,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
     [SelectedTab("posts")]
     public class PostsController : Controller
     {
-        private const int PostsPerPage = 5;
+        private const int PostsPerPage = 10;
 
         // GET: Admin/Posts
         public ActionResult Index(int page = 1)
@@ -23,14 +23,25 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             // SELECT COUNT(*) FROM posts;
             var totalPostCount = Database.Session.Query<Post>().Count();
 
+            var baseQuery = Database.Session.Query<Post>().OrderByDescending(f => f.CreatedAt);
+
+            var postIds = baseQuery
+                .Skip((page - 1) * PostsPerPage)
+                .Take(PostsPerPage)
+                .Select(p => p.Id)
+                .ToArray();
+
+
+
             // SELECT * FROM posts
             // ORDER BY created_at DESC;
             // Skip all previous pages * # posts per page
             // Take all posts based on PostsPerPage const
-            var currentPostPage = Database.Session.Query<Post>()
-                .OrderByDescending(c => c.CreatedAt)
-                .Skip((page - 1) * PostsPerPage)
-                .Take(PostsPerPage)
+            var currentPostPage = baseQuery
+                .Where(p => postIds.Contains(p.Id))
+                .FetchMany(f => f.Tags)
+                .Fetch(f => f.User)
+                
                 .ToList();
 
             return View(new PostsIndex
@@ -89,6 +100,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return View(form);
 
+            // Get all tags selected from the form
             var selectedTags = ReconsileTags(form.Tags).ToList();
 
             Post post;
@@ -103,6 +115,7 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                     User = Auth.User
                 };
 
+                // Foreach tag that has been selected, add it to the Tags within the Post
                 foreach (var tag in selectedTags)
                     post.Tags.Add(tag);
             }
@@ -118,9 +131,11 @@ namespace SimpleBlogB.Areas.Admin.Controllers
                 // Set UpdatedAt as current time
                 post.UpdatedAt = DateTime.UtcNow;
 
+                // Foreach new tag added to the edited post, add it to the Tags within the Post
                 foreach (var toAdd in selectedTags.Where(t => !post.Tags.Contains(t)))
                     post.Tags.Add(toAdd);
 
+                // Foreach tag removed from the edited post, remove it from the Tags within the Post
                 foreach (var toRemove in post.Tags.Where(t => !selectedTags.Contains(t)).ToList())
                     post.Tags.Remove(toRemove);
             }
@@ -177,29 +192,39 @@ namespace SimpleBlogB.Areas.Admin.Controllers
 
         private IEnumerable<Tag> ReconsileTags(IEnumerable<TagCheckbox> tags)
         {
+            // Foreach tag that is checked
             foreach (var tag in tags.Where(t => t.IsChecked))
             {
+                // If the tag has an ID
                 if (tag.Id != null)
                 {
+                    // Find it in the database, then yield return
                     yield return Database.Session.Load<Tag>(tag.Id);
                     continue;   
                 }
 
+                // Else find a tag in the database with the same name
                 var existingTag = Database.Session.Query<Tag>().FirstOrDefault(t => t.Name == tag.Name);
+
+                // If found, yield return
                 if (existingTag != null)
                 {
                     yield return existingTag;
                     continue;
                 }
 
+                // No matching tags have been found, create a new tag
                 var newTag = new Tag
                 {
                     Name = tag.Name,
+                    // Slugify the tag name
                     Slug = tag.Name.Slugify()
                 };
 
+                // Persist to the database
                 Database.Session.Save(newTag);
 
+                // yield return the newly created tag
                 yield return newTag;
             }
         }
