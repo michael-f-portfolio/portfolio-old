@@ -37,9 +37,11 @@
     </div>
 }
 
-@if (Model.IsLoggedIn && Model.IsAdmin)
-{
-    <div class="panel panel-default">
+
+
+<div class="panel panel-default">
+    @if (Model.IsLoggedIn && Model.IsAdmin)
+    {
         <div class="panel-heading">Welcome back, @Model.Username</div>
         <div class="panel-body">
             <div class="btn-group btn-group-sm">
@@ -51,8 +53,20 @@
                     <li>
                         <a href="@Url.Action("new", "posts", new {area = "admin"})">Create Post</a>
                     </li>
+                    <li>
+                        <a href="@Url.Action("logout", "Auth")">Logout</a>
+                    </li>
                 </ul>
-            </div>    
+            </div>
         </div>
-    </div>
-}
+    }
+    else
+    {
+        <div class="panel-heading">Please log in.</div>
+        <div class="panel-body">
+            <div class="btn-group btn-group-sm">
+                <a href="@Url.Action("login", "Auth" )">Click here</a> to login.
+            </div>
+        </div>
+    }
+</div>

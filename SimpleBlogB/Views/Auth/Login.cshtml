@@ -10,15 +10,27 @@
 {
     @Html.ValidationSummary()
 
-    <div>
-        @Html.LabelFor(x => x.Username)
-        @Html.EditorFor(x => x.Username)
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">Login</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Username)
+                        @Html.EditorFor(x => x.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Password)
+                        @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(x => x.Password)
-        @Html.EditorFor(x => x.Password)
-    </div>
-    <div>
-        <input type="submit" value="Login"/>
-    </div>
+
+
+
 }

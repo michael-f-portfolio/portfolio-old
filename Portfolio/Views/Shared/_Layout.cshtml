@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mike Fortier</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="oswald-normal">
+   
+        <div class="navbar ">
+            <div class="site-header">
+                <div class="container site-header">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1 class="page-header oswald-bold">
+                            <a href="@Url.RouteUrl("Home")">Mike <span class="last-name">Fortier</span></a>
+                        </h1>
+                    </div>
+                    <div class="navbar-collapse collapse pull-right">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="pull-right oswald-normal">Let's not get too honest here.</i>
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container body-content text-center">
+        @RenderBody()
+
+        <hr/>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mike Fortier</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
