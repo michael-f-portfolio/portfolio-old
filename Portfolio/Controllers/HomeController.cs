@@ -15,14 +15,21 @@ namespace Portfolio.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is where all the stuff about me will go.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "This is where all my contact information will go.";
+
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            ViewBag.Message = "This is where all the random things I decide to do go.";
 
             return View();
         }
