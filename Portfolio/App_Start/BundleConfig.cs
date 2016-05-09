@@ -29,6 +29,8 @@ namespace Portfolio
                 .Include("~/Content/Styles/site.css")
                 .Include("~/Content/Styles/font-awesome.css")
                 .Include("~/Content/Styles/main.css"));
+
+            
         }
     }
 }

@@ -38,7 +38,7 @@
   linear,
   left top,
   left bottom,
-  color-stop(1, rgba(241, 58, 48, 1)),
+  color-stop(1, rgb(241, 58, 48)),
   color-stop(0, rgba(113, 191, 69, 0)));
 }
 
@@ -55,7 +55,6 @@ a:visited {
 
 a:focus {
     text-decoration: none;
-    background-color: #e13a30;
 }
 
 
@@ -110,4 +109,10 @@ div a:hover {
 
 #email:hover {
     color: #ddd;
+}
+
+#portfolio-selfie {
+    width: 20%;
+    box-shadow: 5px 5px 20px #222;
+    border-radius: 35%;
 }
