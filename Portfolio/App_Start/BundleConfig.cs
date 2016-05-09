@@ -25,7 +25,10 @@ namespace Portfolio
 
             // Styles
             bundles.Add(new StyleBundle("~/Content/css")
-                .Include("~/Content/Styles/bootstrap.css", "~/Content/Styles/site.css"));
+                .Include("~/Content/Styles/bootstrap.css") 
+                .Include("~/Content/Styles/site.css")
+                .Include("~/Content/Styles/font-awesome.css")
+                .Include("~/Content/Styles/main.css"));
         }
     }
 }

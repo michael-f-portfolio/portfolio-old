@@ -55,22 +55,24 @@
 /* Index */
 
 body {
-    background-color: #AEA79F;
+    /*background-color: #AEA79F;*/
 }
 
 .page {
     padding-bottom: 50%;
     border-bottom: 1px dotted #AEA79F;
-}
-
-.page-one {
     background-color: #fff;
 }
 
-.page-two {
-    background-color: #fff;
+/* About */
+
+.about {
+    padding-bottom: 75%;
 }
 
-.page-three {
-    background-color: #fff;
+/* Contact */
+
+.contact {
+    
 }
+
