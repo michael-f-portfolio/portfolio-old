@@ -23,6 +23,9 @@ namespace Portfolio
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
                 .Include("~/Scripts/bootstrap.js", "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/scripts")
+                .Include("~/Scripts/main.js"));
+
             // Styles
             // Multi-page Layout Bundle
             bundles.Add(new StyleBundle("~/Content/css")
