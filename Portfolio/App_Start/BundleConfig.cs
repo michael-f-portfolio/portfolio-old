@@ -24,13 +24,28 @@ namespace Portfolio
                 .Include("~/Scripts/bootstrap.js", "~/Scripts/respond.js"));
 
             // Styles
+            // Multi-page Layout Bundle
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/Styles/bootstrap.css") 
                 .Include("~/Content/Styles/site.css")
                 .Include("~/Content/Styles/font-awesome.css")
                 .Include("~/Content/Styles/main.css"));
 
-            
+            // Long-page Layout Bundle
+            bundles.Add(new StyleBundle("~/Content/css/long-page-layout")
+                .Include("~/Content/Styles/bootstrap.css")
+                .Include("~/Content/Styles/site.css")
+                .Include("~/Content/Styles/font-awesome.css")
+                .Include("~/Content/Styles/long-page-layout.css"));
+
+            // Three-Column Layout Bundle
+            bundles.Add(new StyleBundle("~/Content/css/three-column-layout")
+                .Include("~/Content/Styles/bootstrap.css")
+                .Include("~/Content/Styles/site.css")
+                .Include("~/Content/Styles/font-awesome.css")
+                .Include("~/Content/Styles/three-column-layout.css"));
+
+
         }
     }
 }

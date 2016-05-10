@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Testing Center";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mike Fortier</title>
+
+    @Styles.Render("~/Content/css/three-column-layout")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="main">
+
+    <div id="top_fade"></div>
+
+    <div class="container introduction">
+        <div class="row">
+            <div class="col-lg-9 col-lg-pull-3">
+                <img src="~/Content/Images/portfolio-selfie.jpg" alt="portfolio-selfie" id="portfolio-selfie"/>
+                <div class="contact-info">
+                    <a href="https://github.com/Pajex" target="_blank" title="Github" id="github">
+                        <i class="fa fa-github-square fa-3x" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:mfortier21@gmail.com?Subject=Hey%20there!" target="_top" title="Email" id="email">
+                        <i class="fa fa-envelope fa-3x"></i>
+                    </a>
+                    <a href="https://ca.linkedin.com/in/fortiermike" target="_blank" title="LinkedIn" id="linkedin">
+                        <i class="fa fa-linkedin fa-3x" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="arctic">
+                    <h1 class="arctic">
+                        Hey there, I'm <a href="#" id="title">Mike Fortier</a>.
+                    </h1>
+                    <h2 class="arctic">I am a Web Application Developer</h2>
+                    <h3 class="arctic">
+                        I recently graduated from <a href="http://catalog.sait.ca/preview_program.php?catoid=50&poid=4707" target="_blank" id="subtitle">SAIT</a>!
+                    </h3>
+                </div>
+                <hr style="padding-top: 15px;"/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-9 col-lg-pull-3">
+                <p class="arctic">This is where I'll write some inspiring bullshit...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom_fade"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -209,11 +209,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Images\portfolio-selfie.jpg" />
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Styles\font-awesome.css" />
-    <Content Include="Content\Styles\Main.css" />
+    <Content Include="Content\Styles\main.css" />
+    <Content Include="Content\Styles\long-page-layout.css" />
+    <Content Include="Content\Styles\three-column-layout.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Styles\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
@@ -228,6 +231,10 @@
     <Content Include="Content\Fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Fonts\FontAwesome.otf" />
+    <Content Include="Content\Fonts\arciform-webfont.woff" />
+    <Content Include="Content\Fonts\arciform-webfont.woff2" />
+    <Content Include="Content\Fonts\arctic-webfont.woff" />
+    <Content Include="Content\Fonts\arctic-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -275,11 +282,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\LongPageLayout.cshtml" />
+    <Content Include="Views\Home\ThreeColumnLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />

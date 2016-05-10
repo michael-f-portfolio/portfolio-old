@@ -27,10 +27,15 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public ActionResult Test()
+        public ActionResult LongPageLayout()
         {
             ViewBag.Message = "This is where all the random things I decide to do go.";
 
+            return View();
+        }
+
+        public ActionResult ThreeColumnLayout()
+        { 
             return View();
         }
     }
