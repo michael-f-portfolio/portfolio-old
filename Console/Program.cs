@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
+using ConsoleApplication.Views;
 
 
-namespace MikesConsole
+namespace ConsoleApplication
 {
     public class Program
     {
@@ -22,14 +23,31 @@ namespace MikesConsole
             //    Text = "This is the root node"
             //};
 
-            var node1 = new System.Windows.Forms.TreeNode { Text = "x" };
-            var node2 = new System.Windows.Forms.TreeNode { Text = "y" };
-            var node3 = new System.Windows.Forms.TreeNode { Text = "z" };
+            //var node1 = new System.Windows.Forms.TreeNode { Text = "x" };
+            //var node2 = new System.Windows.Forms.TreeNode { Text = "y" };
+            //var node3 = new System.Windows.Forms.TreeNode { Text = "z" };
 
-            var root = new System.Windows.Forms.TreeNode("ROOT", new []{ node1, node2, node3});
+            //var root = new System.Windows.Forms.TreeNode("ROOT", new []{ node1, node2, node3});
 
-            Foo(root);
+            //Foo(root);
 
+            DisplayHome();
+
+        }
+
+        public static void DisplayHome()
+        {
+            Console.Title = Templates.HomePageTitle;
+            var home = Templates.HomePage;
+
+            Console.WriteLine(home);
+            var input = Console.ReadLine();            
+
+        }
+
+        public static void GetChoice(string choice)
+        {
+            
         }
 
         public static void Foo(System.Windows.Forms.TreeNode root)

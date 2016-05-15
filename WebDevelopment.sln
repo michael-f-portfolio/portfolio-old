@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starter", "Starter\Starter.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Portfolio.csproj", "{AC7B6C48-143F-4323-9DA4-FBE26FCB98BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikesConsole", "Console\MikesConsole.csproj", "{BB075A1B-B6AE-42B8-B57B-F21943173BB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "Console\ConsoleApplication.csproj", "{BB075A1B-B6AE-42B8-B57B-F21943173BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmpLib", "AmpLib\AmpLib.csproj", "{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmpLibTest", "AmpLibTest\AmpLibTest.csproj", "{8A19A7D8-18DD-4074-8115-93E0F12C780A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{BB075A1B-B6AE-42B8-B57B-F21943173BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB075A1B-B6AE-42B8-B57B-F21943173BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB075A1B-B6AE-42B8-B57B-F21943173BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A19A7D8-18DD-4074-8115-93E0F12C780A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A19A7D8-18DD-4074-8115-93E0F12C780A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A19A7D8-18DD-4074-8115-93E0F12C780A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A19A7D8-18DD-4074-8115-93E0F12C780A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

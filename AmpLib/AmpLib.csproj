@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BB075A1B-B6AE-42B8-B57B-F21943173BB0}</ProjectGuid>
+    <ProjectGuid>{5ED08C1F-8838-4677-B4FC-2290EA7C4F91}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Console</RootNamespace>
-    <AssemblyName>Console</AssemblyName>
+    <RootNamespace>AmpLib</RootNamespace>
+    <AssemblyName>AmpLib</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,10 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,11 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmpLib\AmpString\AmpString.cs" />
+    <Compile Include="MessingAround\TCG\Cards\Minions\BabyDuck.cs" />
+    <Compile Include="MessingAround\TCG\Cards\Minions\BabySquid.cs" />
+    <Compile Include="MessingAround\TCG\Cards\Minions\_Minion.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="MessingAround\TCG\Actions\IEffect.cs" />
+    <Compile Include="MessingAround\TCG\Cards\Card.cs" />
+    <Compile Include="MessingAround\TCG\Actions\IAttackable.cs" />
+    <Compile Include="MessingAround\TCG\Actions\IDefendable.cs" />
+    <Compile Include="MessingAround\TCG\Cards\MinionCard.cs" />
+    <Compile Include="MessingAround\TCG\Cards\SpellCard.cs" />
+    <Compile Include="MessingAround\TCG\Views\Board.cs" />
+    <Compile Include="MessingAround\TCG\Views\CardTemplates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Folder Include="MessingAround\TCG\Cards\Spells\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
