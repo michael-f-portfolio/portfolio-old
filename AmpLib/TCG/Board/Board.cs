@@ -1,4 +1,4 @@
-﻿namespace AmpLib.MessingAround.TCG.Views
+﻿namespace AmpLib.TCG.Board
 {
     public class Board
     {

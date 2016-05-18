@@ -1,8 +1,8 @@
-﻿using AmpLib.MessingAround.TCG.Cards;
+﻿using AmpLib.TCG.Cards;
 
-namespace AmpLib.MessingAround.TCG.Actions
+namespace AmpLib.TCG.Mechanics.Actions
 {
-    public interface IDefendable
+    public interface ICanDefend
     {
         /// <summary>
         /// Calculates the amount of damage dealt to a card.

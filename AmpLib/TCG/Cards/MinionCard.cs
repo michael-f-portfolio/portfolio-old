@@ -1,16 +1,20 @@
-﻿using System;
-using System.Diagnostics;
-using AmpLib.MessingAround.TCG.Actions;
+﻿using AmpLib.TCG.Mechanics;
+using AmpLib.TCG.Mechanics.Actions;
 
-namespace AmpLib.MessingAround.TCG.Cards
+namespace AmpLib.TCG.Cards
 {
-    public abstract class MinionCard : Card, IAttackable, IDefendable
+    public abstract class MinionCard : Card, ICanAttack, ICanDefend
     {
-        public abstract int Health { get; set; }
         public abstract int Attack { get; set; }
+        public abstract int MaxAttack { get; set; }
+
+        public abstract int Health { get; set; }
+        public abstract int MaxHealth { get; set; }
+
+
         public bool IsAlive { get; set; }
 
-        public static MinionCard[] operator -(MinionCard attacker, MinionCard defender)
+        public static BattleResults operator -(MinionCard attacker, MinionCard defender)
         {
             var defenderHealth = defender.Health - attacker.Attack;
             var attackerHealth = attacker.Health - defender.Attack;
@@ -18,22 +22,26 @@ namespace AmpLib.MessingAround.TCG.Cards
             defender.Health = defenderHealth;
             attacker.Health = attackerHealth;
 
-            return new[] {attacker, defender};
+            return new BattleResults
+            {
+                Attacker = attacker,
+                Defender = defender
+            };
         }
 
-        public virtual int UnopposedAttack(MinionCard defender)
+        public virtual BattleResults UnopposedAttack(MinionCard defender)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual int AttackMinion(MinionCard defender)
+        public virtual BattleResults AttackMinion(MinionCard defender)
         {
             var results = this - defender;
 
             if (this.Health <= 0) this.IsAlive = false;
             if (defender.Health <= 0) defender.IsAlive = false;
 
-            return 0;
+            return results;
         }
 
         public virtual int Defend(MinionCard attacker)

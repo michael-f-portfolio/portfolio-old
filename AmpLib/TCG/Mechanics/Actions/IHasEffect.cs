@@ -1,8 +1,8 @@
-﻿using AmpLib.MessingAround.TCG.Cards;
+﻿using AmpLib.TCG.Cards;
 
-namespace AmpLib.MessingAround.TCG.Actions
+namespace AmpLib.TCG.Mechanics.Actions
 {
-    public interface IEffect
+    public interface IHasEffect
     {
         /// <summary>
         /// Calculates the amount of damage a spell card has done to a 

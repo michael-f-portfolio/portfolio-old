@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="AmpStringTest\UnitTest1.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="TCGTest\TcgTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
