@@ -51,7 +51,7 @@ namespace AmpLib.TCG.Cards
 
         public override string ToString()
         {
-            return $"Name: {Name}\nAttack: {Attack}\nHealth: {Health}\nIsAlive: {IsAlive}\nRarity: {Rarity}";
+            return $"Name: {Name}\tAttack: {Attack}\tHealth: {Health}\tIsAlive: {IsAlive}\tRarity: {Rarity}";
         }
     }
 }

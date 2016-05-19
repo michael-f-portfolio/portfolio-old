@@ -12,10 +12,9 @@
         public BabySquid()
         {
             Name = "Baby Squid";
-            Attack = 2;
-            MaxAttack = 2;
-            Health = 1;
-            MaxHealth = 1;
+            Cost = 1;
+            Attack = MaxAttack = 2;
+            Health = MaxHealth = 1;
             Rarity = RarityEnum.White;
             IsAlive = true;
         }
