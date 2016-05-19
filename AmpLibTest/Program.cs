@@ -7,7 +7,7 @@ namespace AmpLibTest
     {
         public static void Main(string[] args)
         {
-            var test = "Test";
+           
             
               
         }

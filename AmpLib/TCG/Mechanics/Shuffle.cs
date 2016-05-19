@@ -10,10 +10,16 @@ namespace AmpLib.TCG.Mechanics
     {
         // Shuffle deck using System.Security.Crptography
         // Via http://stackoverflow.com/a/108836
-        public static Card[] ShuffleDeck(IEnumerable<Card> toShuffle)
+
+        /// <summary>
+        /// Shuffles a deck of cards.
+        /// </summary>
+        /// <param name="toShuffle">The deck to be shuffled.</param>
+        /// <returns>A List of Cards, shuffled.</returns>
+        public static List<Card> ShuffleDeck(List<Card> toShuffle)
         {
             var rnd = new RNGCryptoServiceProvider();
-            return toShuffle.OrderBy(x => GetNextInt32(rnd)).ToArray();
+            return toShuffle.OrderBy(x => GetNextInt32(rnd)).ToList();
         }
 
         private static int GetNextInt32(RNGCryptoServiceProvider rnd)
