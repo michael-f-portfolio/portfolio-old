@@ -24,6 +24,8 @@ namespace SimpleBlogB.Controllers
         { 
             // Find user in database or null if not found
             var user = Database.Session.Query<User>().FirstOrDefault(u => u.Username == form.Username);
+            
+
 
             // If null, do a fake hash (prevent timing attack)
             if(user == null)
